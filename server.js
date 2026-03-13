@@ -15,15 +15,16 @@ app.listen(port, () => {
     `Server started at port : ${port}, \nName: ${name} \nBatch: ${batch}`,
   );
 });
+app.use(exp.static("public"));
 
-//get
-app.get("/", (req, res) => {
-  res.json({ name, batch });
-});
+// //get
+// app.get("/", (req, res) => {
+//   res.json({ name, batch });
+// });
 
 /////////////
 app.use(exp.json());
-app.use(exp.static("public"));
+
 app.use(exp.urlencoded({ extended: true }));
 
 let userName = "";
